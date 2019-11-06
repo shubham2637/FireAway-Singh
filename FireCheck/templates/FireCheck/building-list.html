@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i> Building List</h1>
+          <p>Table to display Building data effectively</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <table class="table table-hover table-bordered" id="sampleTable">
+
+          <th> <b>Building ID</b> </th>
+          <th> <b>Name</b> </th>
+          <th> <b>latitude</b> </th>
+          <th> <b>longitude</b>  </th>
+          <th> <b>address</b> </th>
+          <th> <b>email</b> </th>
+
+          <!-- <th> <b>Image</b> </th> -->
+        </thead>
+
+        {% for d in buildings %}
+
+        <tbody>
+
+
+
+            <td>{{d.id}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.latitude}}</td>
+            <td>{{d.latitude}}</td>
+            <td>{{d.address}}</td>
+            <td>{{d.email}}</td>
+            <!-- <td><img src="{{ MEDIA_URL }}{{c.image}}" alt={{c.image}} /></td> -->
+        </tbody>
+
+        {% endfor  %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

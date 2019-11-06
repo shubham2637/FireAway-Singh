@@ -29,6 +29,7 @@ def index(request):
 
     }
     return render(request, "FireCheck/index.html", context)
+    #return render(request, "base.html", context)
 @login_required()
 def device_details(request, did):
     context= {
@@ -77,35 +78,35 @@ def device_list(request):
     context= {
         "devices" : device.objects.all()
     }
-    return render(request, "FireCheck/table.html", context)
+    return render(request, "FireCheck/device-list-table.html", context)
 
 @login_required()
 def red_device_list(request):
     context= {
         "devices" : device.objects.all().filter(health='R')
     }
-    return render(request, "FireCheck/table.html", context)
+    return render(request, "FireCheck/device-list-table.html", context)
 
 @login_required()
 def green_device_list(request):
     context= {
         "devices" : device.objects.all().filter(health='G')
     }
-    return render(request, "FireCheck/table.html", context)
+    return render(request, "FireCheck/device-list-table.html", context)
 
 @login_required()
 def yellow_device_list(request):
     context= {
         "devices" : device.objects.all().filter(health='Y')
     }
-    return render(request, "FireCheck/table.html", context)
+    return render(request, "FireCheck/device-list-table.html", context)
 
 @login_required()
 def building_list(request):
     context= {
         "buildings" : building.objects.all()
     }
-    return render(request, "FireCheck/buildinglist.html", context)
+    return render(request, "FireCheck/building-list.html", context)
 @login_required()
 def zone_list(request):
     context= {
