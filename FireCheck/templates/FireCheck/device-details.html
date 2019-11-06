@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i> Device #{{d.id}}</h1>
+          <h3>Device details</h3>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <table class="table table-hover table-bordered" id="sampleTable">
+
+                <thead>
+
+                                     </thead>
+                                     <tbody>
+                                         <tr class="odd gradeX">
+                                             <td>Device Id</td>
+                                             <td>{{d.id}}</td>
+                                         </tr>
+                                          <tr class="odd gradeX">
+                                             <td>Installed On</td>
+                                             <td>{{d.date_time_created}}</td>
+                                         </tr>
+                                          <tr class="odd gradeX">
+                                             <td>Last Checked</td>
+                                             <td>{{d.last_checked}}</td>
+                                         </tr>
+                                          <tr class="odd gradeX">
+                                             <td>Health</td>
+                                             <td>{{d.health}}</td>
+                                         </tr>
+                                          <tr class="odd gradeX">
+                                             <td>Zone Details</td>
+                                             <td><a href="/zone/{{d.zone.id}}">{{d.zone.id}}</a></td>
+                                         </tr>
+                                          <tr class="odd gradeX">
+                                             <td>Panel ID</td>
+                                             <td><a href="/panel/{{d.panel.id}}">{{d.panel.id}}</a></td>
+                                         </tr>
+                                          <tr class="odd gradeX">
+                                             <td>Building Details</td>
+                                             <td><a href="/building/{{d.building.id}}">{{d.building.name}}</a></td>
+                                         </tr>
+                                     </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

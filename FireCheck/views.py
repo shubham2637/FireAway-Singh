@@ -17,7 +17,7 @@ def create(request):
         "devices" : device.objects.all()
     }
     return render(request, "FireCheck/devicelist.html", context)
-@login_required()
+@login_required(login_url='/admin/login/')
 def index(request):
     context = {
         "buildings" : building.objects.all(),
@@ -30,14 +30,14 @@ def index(request):
     }
     return render(request, "FireCheck/index.html", context)
     #return render(request, "base.html", context)
-@login_required()
+@login_required(login_url='/admin/login/')
 def device_details(request, did):
     context= {
         "d" : device.objects.get(pk=did)
     }
-    return render(request, "FireCheck/device_details.html", context)
+    return render(request, "FireCheck/device-details.html", context)
 
-@login_required()
+@login_required(login_url='/admin/login/')
 def zone_details(request, zid):
     zo=zone.objects.get(pk=zid)
     context= {
@@ -45,8 +45,8 @@ def zone_details(request, zid):
         "d" : device.objects.filter(zone=zo),
         "dc":device.objects.filter(zone=zo).count(),
     }
-    return render(request, "FireCheck/zone_details.html", context)
-@login_required()
+    return render(request, "FireCheck/zone-details.html", context)
+@login_required(login_url='/admin/login/')
 def building_details(request, bid):
     bo=building.objects.get(pk=bid)
     context= {
@@ -58,7 +58,7 @@ def building_details(request, bid):
         "p" : panel.objects.filter(building=bo),
         "pc":panel.objects.filter(building=bo).count(),
     }
-    return render(request, "FireCheck/building_details.html", context)
+    return render(request, "FireCheck/building-details.html", context)
 @login_required()
 def panel_details(request, pid):
     po=panel.objects.get(pk=pid)
@@ -69,7 +69,7 @@ def panel_details(request, pid):
         "z" : zone.objects.filter(panel=po),
         "zc":zone.objects.filter(panel=po).count(),
     }
-    return render(request, "FireCheck/panel_details.html", context)
+    return render(request, "FireCheck/panel-details.html", context)
 
 
 
@@ -87,35 +87,35 @@ def red_device_list(request):
     }
     return render(request, "FireCheck/device-list-table.html", context)
 
-@login_required()
+@login_required(login_url='/admin/login/')
 def green_device_list(request):
     context= {
         "devices" : device.objects.all().filter(health='G')
     }
     return render(request, "FireCheck/device-list-table.html", context)
 
-@login_required()
+@login_required(login_url='/admin/login/')
 def yellow_device_list(request):
     context= {
         "devices" : device.objects.all().filter(health='Y')
     }
     return render(request, "FireCheck/device-list-table.html", context)
 
-@login_required()
+@login_required(login_url='/admin/login/')
 def building_list(request):
     context= {
         "buildings" : building.objects.all()
     }
     return render(request, "FireCheck/building-list.html", context)
-@login_required()
+@login_required(login_url='/admin/login/')
 def zone_list(request):
     context= {
         "zones" : zone.objects.all()
     }
-    return render(request, "FireCheck/zonelist.html", context)
-@login_required()
+    return render(request, "FireCheck/zone-list.html", context)
+@login_required(login_url='/admin/login/')
 def panel_list(request):
     context= {
         "panels" : panel.objects.all()
     }
-    return render(request, "FireCheck/panellist.html", context)
+    return render(request, "FireCheck/panel-list.html", context)

@@ -15,6 +15,7 @@ urlpatterns =[
     path("greendevicelist", views.green_device_list, name="greendevicelist"),
     path("buildinglist", views.building_list, name="buildinglist"),
     path("zonelist", views.zone_list, name="zonelist"),
+    path("panellist", views.panel_list, name="panellist"),
     path("accounts/", include('django.contrib.auth.urls')),
     path("create", views.create, name="create"),
     #path("panellist", views.panel_list, name="panellist"),
